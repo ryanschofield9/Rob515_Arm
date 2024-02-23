@@ -170,7 +170,7 @@ class Perception():
 
         for c in contours:  # 历遍所有轮廓 #Go through all the outlines 
             contour_area_holder = math.fabs(cv2.contourArea(c))  # 计算轮廓面积 #Calculate the profile area 
-            if contour_area_holder > area_max:
+            if contour_area_holder > max_area:
                 max_area = contour_area_holder
                 if contour_area_holder > 300:  # 只有在面积大于300时，最大面积的轮廓才是有效的，以过滤干扰
                     max_contour = c
