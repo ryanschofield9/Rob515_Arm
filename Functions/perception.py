@@ -202,7 +202,7 @@ class Perception():
 
 if __name__ == '__main__':
     perception = Perception()
-    target_color = perception.set_target_color('red')
+    target_color = perception.set_target_color('blue')
     my_camera = Camera.Camera()
     my_camera.camera_open()
     while True:
