@@ -17,6 +17,7 @@ if sys.version_info.major == 2:
     sys.exit(0)
 
 AK = ArmIK()
+
 '''
 range_rgb = {
     'red': (0, 0, 255),
@@ -205,9 +206,11 @@ if __name__ == '__main__':
     target_color = perception.set_target_color('green')
     my_camera = Camera.Camera()
     my_camera.camera_open()
+    time.sleep(2)
     print("here")
     while True:
         img = my_camera.frame
+        print(img)
         print("here2")
         if img is not None:
             print("here3")
