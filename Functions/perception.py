@@ -202,7 +202,7 @@ class Perception():
 
 if __name__ == '__main__':
     perception = Perception()
-    target_color = perception.set_target_color('green')
+    target_color = perception.set_target_color('blue')
     my_camera = Camera.Camera()
     my_camera.camera_open()
     while True:
@@ -221,4 +221,5 @@ if __name__ == '__main__':
             key = cv2.waitKey(1)
             if key == 27:
                 break
-
+        my_camera.camera_close()
+        cv2.destroyAllWindows()
