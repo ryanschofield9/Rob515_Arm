@@ -223,5 +223,5 @@ if __name__ == '__main__':
             key = cv2.waitKey(1)
             if key == 27:
                 break
-        my_camera.camera_close()
-        cv2.destroyAllWindows()
+    my_camera.camera_close()
+    cv2.destroyAllWindows()
