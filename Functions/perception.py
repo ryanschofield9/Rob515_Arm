@@ -207,13 +207,9 @@ if __name__ == '__main__':
     my_camera = Camera.Camera()
     my_camera.camera_open()
     time.sleep(2)
-    print("here")
     while True:
         img = my_camera.frame
-        print(img)
-        print("here2")
         if img is not None:
-            print("here3")
             frame = img.copy()
             frame_lab = perception.get_frame_LAB(frame)
             contours = perception.find_contours(frame_lab)
