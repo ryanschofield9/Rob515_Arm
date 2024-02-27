@@ -205,9 +205,12 @@ if __name__ == '__main__':
     target_color = perception.set_target_color('green')
     my_camera = Camera.Camera()
     my_camera.camera_open()
+    print("here")
     while True:
         img = my_camera.frame
+        print("here2")
         if img is not None:
+            print("here3")
             frame = img.copy()
             frame_lab = perception.get_frame_LAB(frame)
             contours = perception.find_contours(frame_lab)
