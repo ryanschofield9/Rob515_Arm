@@ -90,7 +90,7 @@ class Motion():
         #if not first_move and not unreachable
         #do this while self.start_pickup is true 
         self.action_finished = False 
-        world_x, world_y = self.detect_object(color)
+        world_x, world_y = self.detect_object(color, my_camera)
         if self.count_second < 3:
             if math.is_close(world_x, self.world_x, 1) and math.is_close(world_y, self.world_y, 1):
                 self.start_pickup = True
@@ -141,6 +141,7 @@ class Motion():
     
 
     def run (self, color, my_camera):
+        self.starting_position()
         self.perception.run(color,5,my_camera)
         if self.first_move:
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
