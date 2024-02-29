@@ -191,6 +191,8 @@ if __name__ == '__main__':
     color = 'red'
     print("ok starting")
     result= motion.run(color, my_camera)
+    color = 'blue'
+    result= motion.run(color, my_camera)
 
 
 
