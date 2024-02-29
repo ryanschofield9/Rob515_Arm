@@ -199,7 +199,7 @@ if __name__ == '__main__':
     result= motion.run(color, my_camera)
     print("ok starting 2")
     color = 'blue'
-    #result= motion.run(color, my_camera)
+    result= motion.run(color, my_camera)
 
 
 
