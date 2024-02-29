@@ -118,7 +118,7 @@ class Motion():
     
     def rotate_gripper(self, color = None):
         if color == None:
-            servo2_angle = getAngle(self.world_X, self.world_Y, self.rotation_angle) # get roation angle 
+            servo2_angle = getAngle(self.world_x, self.world_y, self.rotation_angle) # get roation angle 
         else: 
             servo2_angle = getAngle(self.coordinate[color][0], self.coordinate[color][1], -90)
         
