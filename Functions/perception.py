@@ -227,7 +227,9 @@ class Perception():
 
     def get_coordinates(self, color, my_camera):
         print("in perception")
+        print(color)
         target_color = self.set_target_color(color)
+        print(self.target_color)
         #my_camera.camera_open()
         img = my_camera.frame
         print("found image")
