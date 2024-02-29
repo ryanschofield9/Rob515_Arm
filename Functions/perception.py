@@ -194,7 +194,7 @@ class Perception():
         world_x, world_y = convertCoordinate(img_center_x, img_center_y, self.size)
         return world_x, world_y
     
-    def draw_box(self,img, target_color, world_x, world_y):
+    def draw_box(self,img, target_color, world_x, world_y, box):
         cv2.drawContours(img, [box], -1, self.range_rgb[target_color], 2)
         cv2.putText(img, '(' + str(world_x) + ',' + str(world_y) + ')', (min(box[0, 0], box[2, 0]), box[2, 1] - 10),
             cv2.FONT_HERSHEY_SIMPLEX, 0.5, self.range_rgb[target_color], 1) 
@@ -214,10 +214,10 @@ class Perception():
                 contours = self.find_contours(frame_lab)
                 max_contour, max_area = self.calculate_profile_area(contours)
                 rect,box = self.turn_into_box(max_contour)
-                self.get_ROI()
+                self.get_ROI(box)
                 img_center_x, img_center_y = self.get_center(rect)
                 world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
-                Frame = self.draw_box(img,target_color, world_x, world_y)
+                Frame = self.draw_box(img,target_color, world_x, world_y, box)
                 cv2.imshow('Frame', Frame)
                 key = cv2.waitKey(1)
                 if key == 27:
