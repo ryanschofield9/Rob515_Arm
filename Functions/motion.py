@@ -135,7 +135,7 @@ class Motion():
         time.sleep(1)
     
     def starting_position(self):
-        Board.setBusServoPulse(1, self.servo1 - 50, 300)
+        Board.setBusServoPulse(1, self.servo_1 - 50, 300)
         Board.setBusServoPulse(2, 500, 500)
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
     
