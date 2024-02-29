@@ -71,7 +71,7 @@ class Motion():
         world_x, world_y = self.perception.get_coordinates(color, my_camera)
         return (world_x, world_y)
 
-    def first_to_object (self, color):
+    def first_to_object (self, color, my_camera):
         #put in full code to run this if its the first move 
         while not self.detected_object: 
             self.world_x, self.world_y = self.detect_object(color, my_camera)
