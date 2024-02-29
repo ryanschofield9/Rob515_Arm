@@ -207,7 +207,7 @@ class Perception():
         my_camera.camera_open()
         start = time.time()
 
-        while (now-start) < run_time:
+        while (time.time()-start) < run_time:
             img = my_camera.frame
             if img is not None:
                 frame = img.copy()
@@ -223,7 +223,6 @@ class Perception():
                 key = cv2.waitKey(1)
                 if key == 27:
                     break
-                now = time.time()
         my_camera.camera_close()
         cv2.destroyAllWindows()
 
