@@ -68,7 +68,10 @@ class Motion():
             return result
     
     def detect_object(self, color, my_camera):
+        print("in detetction")
         world_x, world_y = self.perception.get_coordinates(color, my_camera)
+        print(world_x)
+        print(world_y)
         return (world_x, world_y)
 
     def first_to_object (self, color, my_camera):
