@@ -143,11 +143,14 @@ class Motion():
     def run (self, color, my_camera):
         self.starting_position()
         self.perception.run(color,5,my_camera)
+        print("doing first move")
         if self.first_move:
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
-            while(self.start_pick_up ==False): 
+            print("doing second move")
+            while(self.start_pickup ==False): 
                 self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
+                print(self.start_pickup)
             self.grippers(True) # open grippers 
             self.rotate_gripper() #calculate needed angle of the gripper and rotate to that angle 
             self.lower_block() #move directly to block location and lower 
