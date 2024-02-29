@@ -188,8 +188,8 @@ class Motion():
             return False 
         
     def fix_offset(self):
-        self.world_x= self.world_x - 2
-        self.world_y = self.world_y - 2 
+        self.world_x= self.world_x 
+        self.world_y = self.world_y  
 
 if __name__ == '__main__':
     my_camera = Camera.Camera()
