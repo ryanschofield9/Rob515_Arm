@@ -241,6 +241,7 @@ class Perception():
             self.get_ROI(box)
             img_center_x, img_center_y = self.get_center(rect)
             world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
+            print(f"sending coordinates: {world_x}, {world_y}")
             return (world_x, world_y)
 
 
