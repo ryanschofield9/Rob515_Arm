@@ -182,7 +182,7 @@ class Perception():
         box = np.int0(cv2.boxPoints(rect))
         return rect, box 
     
-    def get_ROI(self):
+    def get_ROI(self,box):
         self.roi = getROI(box) #获取roi区域 #......
         self.get_roi = True
     
@@ -236,7 +236,7 @@ class Perception():
             contours = self.find_contours(frame_lab)
             max_contour, max_area = self.calculate_profile_area(contours)
             rect,box = self.turn_into_box(max_contour)
-            self.get_ROI()
+            self.get_ROI(box)
             img_center_x, img_center_y = self.get_center(rect)
             world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
         return (world_x, world_y)
