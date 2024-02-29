@@ -227,14 +227,12 @@ class Perception():
 
     def get_coordinates(self, color, my_camera):
         print("in perception")
-        print(color)
         target_color = self.set_target_color(color)
         print(self.target_color)
         #my_camera.camera_open()
         img = my_camera.frame
         print("found image")
         if img is not None:
-            print("img is not none")
             frame = img.copy()
             frame_lab = self.get_frame_LAB(frame)
             contours = self.find_contours(frame_lab)
