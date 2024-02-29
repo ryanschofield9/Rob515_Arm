@@ -102,11 +102,17 @@ class ArmIK:
 
     def setPitchRangeMoving(self, coordinate_data, alpha, alpha1, alpha2, movetime=None):
         #给定坐标coordinate_data和俯仰角alpha,以及俯仰角范围的范围alpha1, alpha2，自动寻找最接近给定俯仰角的解，并转到目标位置
+        # Given the coordinates coordinate_data and pitch angle alpha, as well as the range of pitch angle range alpha1, alpha2, automatically find the solution closest to the given pitch angle and go to the target position
         #如果无解返回False,否则返回舵机角度、俯仰角、运行时间
+        #If no solution is returned False, otherwise return the servo angle, pitch angle, and running time
         #坐标单位cm， 以元组形式传入，例如(0, 5, 10)
+        #The coordinate unit cm passed in as a tuple, e.g. (0,5,10)
         #alpha为给定俯仰角
+        #alpha is the given pitch angle 
         #alpha1和alpha2为俯仰角的取值范围
+        #alpha1 and alpha2 are the range of elevation angles 
         #movetime为舵机转动时间，单位ms, 如果不给出时间，则自动计算
+        #movetime is the rotation time of the servo, in ms, if the time is not given, it is automatically calculated 
         x, y, z = coordinate_data
         result1 = self.setPitchRange((x, y, z), alpha, alpha1)
         result2 = self.setPitchRange((x, y, z), alpha, alpha2)

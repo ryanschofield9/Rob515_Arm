@@ -66,7 +66,7 @@ def setBuzzer(timer):
     time.sleep(timer)
     Board.setBuzzer(0)
 
-#设置扩展板的RGB灯颜色使其跟要追踪的颜色一致 #....... The RGB light color matches the color you want to track
+#设置扩展板的RGB灯颜色使其跟要追踪的颜色一致 # set The RGB light color matches the color you want to track
 def set_rgb(color):
     if color == "red":
         Board.RGB.setPixelColor(0, Board.PixelColor(255, 0, 0))
@@ -202,7 +202,7 @@ def move():
                     AK.setPitchRangeMoving((world_x, world_y - 2, 5), -90, -90, 0, 20)
                     time.sleep(0.02)                    
                     track = False
-                if start_pick_up: #如果物体没有移动一段时间，开始夹取 #.... start the gripping
+                if start_pick_up: #如果物体没有移动一段时间，开始夹取 #If the object has not moved for a while, start the gripping
                     action_finish = False
                     if not __isRunning: # 停止以及退出标志位检测 #Stop and exit flag detection
                         continue

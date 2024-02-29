@@ -200,9 +200,56 @@ class Perception():
             cv2.FONT_HERSHEY_SIMPLEX, 0.5, self.range_rgb[target_color], 1) 
         self.track = True
         return img
+    
+    def run (self,color):
+        target_color = self.set_target_color(color)
+        my_camera = Camera.Camera()
+        my_camera.camera_open()
+        time.sleep(2)
+        while True:
+            img = my_camera.frame
+            if img is not None:
+                frame = img.copy()
+                frame_lab = self.get_frame_LAB(frame)
+                contours = self.find_contours(frame_lab)
+                max_contour, max_area = self.calculate_profile_area(contours)
+                rect,box = self.turn_into_box(max_contour)
+                self.get_ROI()
+                img_center_x, img_center_y = self.get_center(rect)
+                world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
+                Frame = self.draw_box(img,target_color, world_x, world_y)
+                cv2.imshow('Frame', Frame)
+                key = cv2.waitKey(1)
+                if key == 27:
+                    break
+        my_camera.camera_close()
+        cv2.destroyAllWindows()
+
+    def get_coordinates(self, color):
+        target_color = self.set_target_color(color)
+        my_camera = Camera.Camera()
+        my_camera.camera_open()
+        img = my_camera.frame
+        if img is not None:
+            frame = img.copy()
+            frame_lab = self.get_frame_LAB(frame)
+            contours = self.find_contours(frame_lab)
+            max_contour, max_area = self.calculate_profile_area(contours)
+            rect,box = self.turn_into_box(max_contour)
+            self.get_ROI()
+            img_center_x, img_center_y = self.get_center(rect)
+            world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
+        return (world_x, world_y)
+
 
 if __name__ == '__main__':
     perception = Perception()
+    perception.run('red')
+    time.sleep(10)
+    perception.run('blue')
+    time.sleep(10)
+    perception.run('green')
+    '''
     target_color = perception.set_target_color('red')
     my_camera = Camera.Camera()
     my_camera.camera_open()
@@ -225,3 +272,5 @@ if __name__ == '__main__':
                 break
     my_camera.camera_close()
     cv2.destroyAllWindows()
+    '''
+    
