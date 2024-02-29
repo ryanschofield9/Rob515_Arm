@@ -201,12 +201,13 @@ class Perception():
         self.track = True
         return img
     
-    def run (self,color):
+    def run (self,color, run_time):
         target_color = self.set_target_color(color)
         my_camera = Camera.Camera()
         my_camera.camera_open()
-        time.sleep(2)
-        while True:
+        start = time.time()
+
+        while (now-start) < run_time:
             img = my_camera.frame
             if img is not None:
                 frame = img.copy()
@@ -222,6 +223,7 @@ class Perception():
                 key = cv2.waitKey(1)
                 if key == 27:
                     break
+                now = time.time()
         my_camera.camera_close()
         cv2.destroyAllWindows()
 
@@ -239,16 +241,14 @@ class Perception():
             self.get_ROI(box)
             img_center_x, img_center_y = self.get_center(rect)
             world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
-        return (world_x, world_y)
+            return (world_x, world_y)
 
 
 if __name__ == '__main__':
     perception = Perception()
-    perception.run('red')
-    time.sleep(10)
-    perception.run('blue')
-    time.sleep(10)
-    perception.run('green')
+    perception.run('red',10)
+    perception.run('blue', 10)
+    perception.run('green',10)
     '''
     target_color = perception.set_target_color('red')
     my_camera = Camera.Camera()
