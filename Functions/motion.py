@@ -68,7 +68,7 @@ class Motion():
             return result
     
     def detect_object(self, color):
-        world_x, world_y = self.perception.get_coordidates(color)
+        world_x, world_y = self.perception.get_coordinates(color)
         return (world_x, world_y)
 
     def first_to_object (self, color):
@@ -167,7 +167,7 @@ if __name__ == '__main__':
     motion = Motion()
     color = 'red'
     result= motion.run(color)
-    
+
 
 
 
