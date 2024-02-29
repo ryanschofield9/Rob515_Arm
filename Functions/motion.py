@@ -156,10 +156,8 @@ class Motion():
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
             print("doing second move")
-            print(self.start_pick_up)
             while(self.start_pick_up ==False): 
                 self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
-                print(self.start_pick_up)
             self.grippers(True) # open grippers 
             self.rotate_gripper() #calculate needed angle of the gripper and rotate to that angle 
             self.fix_offset()
@@ -179,7 +177,7 @@ class Motion():
             return False 
         
     def fix_offset(self):
-        self.world_x= self.world_x - 1.75
+        self.world_x= self.world_x - 2
         self.world_y = self.world_y -2 
 
 if __name__ == '__main__':
