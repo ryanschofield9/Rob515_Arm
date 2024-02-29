@@ -97,7 +97,7 @@ class Motion():
         world_x, world_y = self.detect_object(color, my_camera)
         print("world_x and world_y found")
         if self.count_second < 3:
-            if math.isclose(world_x, self.world_x, 1) and math.isclose(world_y, self.world_y, 1):
+            if math.isclose(world_x, self.world_x, rel_tol = 1) and math.isclose(world_y, self.world_y, rel_tol =1):
                 print("close")
                 self.start_pick_up = True
             else: 
