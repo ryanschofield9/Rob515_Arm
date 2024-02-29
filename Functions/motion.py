@@ -64,7 +64,7 @@ class Motion():
         }
 
     def go_to_location (self,coordinates,alpha, alpha1, alpha2, movetime = None ):
-            result = AK.setPitchRangeMoving(coordinates, alpha, alpha1, alpha2, movetime)
+            result = self.AK.setPitchRangeMoving(coordinates, alpha, alpha1, alpha2, movetime)
             return result
     
     def detect_object(self, color, my_camera):
@@ -141,7 +141,7 @@ class Motion():
     
 
     def run (self, color, my_camera):
-        self.perception.run(color,3,my_camera)
+        self.perception.run(color,5,my_camera)
         if self.first_move:
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
