@@ -69,6 +69,7 @@ class Motion():
     
     def detect_object(self, color, my_camera):
         print("in detetction")
+        print(color)
         world_x, world_y = self.perception.get_coordinates(color, my_camera)
         print(world_x)
         print(world_y)
@@ -183,7 +184,7 @@ class Motion():
             return False 
         
     def fix_offset(self):
-        self.world_x= self.world_x - 1
+        self.world_x= self.world_x - 1.75
         self.world_y = self.world_y -2 
 
 if __name__ == '__main__':
