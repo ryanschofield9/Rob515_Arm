@@ -141,6 +141,7 @@ class Motion():
     
 
     def run (self, color, my_camera):
+        print("start")
         self.starting_position()
         self.perception.run(color,5,my_camera)
         print("doing first move")
@@ -172,6 +173,7 @@ if __name__ == '__main__':
     my_camera = Camera.Camera()
     motion = Motion()
     color = 'red'
+    print("ok starting")
     result= motion.run(color, my_camera)
 
 
