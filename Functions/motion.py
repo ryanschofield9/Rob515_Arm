@@ -88,13 +88,19 @@ class Motion():
     
     def second_to_object(self, color, my_camera):
         #if not first_move and not unreachable
-        #do this while self.start_pick_up is true 
+        #do this while self.start_pick_up is true
+        print("hello")
         self.action_finished = False 
         world_x, world_y = self.detect_object(color, my_camera)
+        print("world_x and world_y found")
         if self.count_second < 3:
             if math.is_close(world_x, self.world_x, 1) and math.is_close(world_y, self.world_y, 1):
+                print("close")
                 self.start_pick_up = True
-            self.count_second = self.count_second +1 
+            else: 
+                print("not close")
+                self.count_second = self.count_second +1 
+            
         else: 
             self.world_x, self.world_y = self.detect_object(color, my_camera)
             self.count_second = 0 
@@ -151,6 +157,7 @@ class Motion():
             print("doing second move")
             print(self.start_pick_up)
             while(self.start_pick_up ==False): 
+                print("in here")
                 self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
                 print(self.start_pick_up)
             self.grippers(True) # open grippers 
