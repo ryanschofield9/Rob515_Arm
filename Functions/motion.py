@@ -131,7 +131,7 @@ class Motion():
         else: 
             self.go_to_location((self.coordinate[color][0], self.coordinate[color][1], self.coordinate[color][2] + 3), -90, -90, 0)
             time.sleep(0.5)
-            self.got_to_location((self.coordinate[color]), -90, -90, 0, 1000)
+            self.go_to_location((self.coordinate[color]), -90, -90, 0, 1000)
 
         time.sleep(2)
 
@@ -165,6 +165,7 @@ class Motion():
                 print(self.start_pick_up)
             self.grippers(True) # open grippers 
             self.rotate_gripper() #calculate needed angle of the gripper and rotate to that angle 
+            self.fix_offset()
             self.lower_block() #move directly to block location and lower 
             self.grippers(False) #close grippers 
             self.raise_block() # raise block up 
@@ -179,6 +180,10 @@ class Motion():
             return False 
         else: 
             return False 
+        
+    def fix_offset(self):
+        self.world_x= self.world_x - 2
+        self.world_y = self.world_y 
 
 if __name__ == '__main__':
     my_camera = Camera.Camera()
