@@ -76,24 +76,24 @@ class Motion():
         while not self.detected_object: 
             self.world_x, self.world_y = self.detect_object(color, my_camera)
             self.detected_object = True 
-        result = self.go_to_location((self.world_x, self.world_y-2, 5), -90, -90, 0)
+        result = self.go_to_location((self.world_x, self.world_y-2, 12), -90, -90, 0)
         if result == False:
             self.unreachable = True  
         else: 
             self.unreachable = False
         time.sleep(result[2]/1000) #wait a little while 
-        self.start_pickup = False 
+        self.start_pick_up = False 
         self.first_move = False
         self.action_finished = True 
     
     def second_to_object(self, color, my_camera):
         #if not first_move and not unreachable
-        #do this while self.start_pickup is true 
+        #do this while self.start_pick_up is true 
         self.action_finished = False 
         world_x, world_y = self.detect_object(color, my_camera)
         if self.count_second < 3:
             if math.is_close(world_x, self.world_x, 1) and math.is_close(world_y, self.world_y, 1):
-                self.start_pickup = True
+                self.start_pick_up = True
             self.count_second = self.count_second +1 
         else: 
             self.world_x, self.world_y = self.detect_object(color, my_camera)
@@ -149,9 +149,10 @@ class Motion():
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
             print("doing second move")
-            while(self.start_pickup ==False): 
+            print(self.start_pick_up)
+            while(self.start_pick_up ==False): 
                 self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
-                print(self.start_pickup)
+                print(self.start_pick_up)
             self.grippers(True) # open grippers 
             self.rotate_gripper() #calculate needed angle of the gripper and rotate to that angle 
             self.lower_block() #move directly to block location and lower 
