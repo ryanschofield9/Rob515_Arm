@@ -67,14 +67,14 @@ class Motion():
             result = AK.setPitchRangeMoving(coordinates, alpha, alpha1, alpha2, movetime)
             return result
     
-    def detect_object(self, color):
-        world_x, world_y = self.perception.get_coordinates(color)
+    def detect_object(self, color, my_camera):
+        world_x, world_y = self.perception.get_coordinates(color, my_camera)
         return (world_x, world_y)
 
     def first_to_object (self, color):
         #put in full code to run this if its the first move 
         while not self.detected_object: 
-            self.world_x, self.world_y = self.detect_object(color)
+            self.world_x, self.world_y = self.detect_object(color, my_camera)
             self.detected_object = True 
         result = self.go_to_location((self.world_x, self.world_y-2, 5), -90, -90, 0)
         if result == False:
@@ -86,7 +86,7 @@ class Motion():
         self.first_move = False
         self.action_finished = True 
     
-    def second_to_object(self, color):
+    def second_to_object(self, color, my_camera):
         #if not first_move and not unreachable
         #do this while self.start_pickup is true 
         self.action_finished = False 
@@ -96,7 +96,7 @@ class Motion():
                 self.start_pickup = True
             self.count_second = self.count_second +1 
         else: 
-            self.world_x, self.world_y = self.detect_object(color)
+            self.world_x, self.world_y = self.detect_object(color, my_camera)
             self.count_second = 0 
         
     def grippers(self, open):
@@ -140,12 +140,13 @@ class Motion():
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
     
 
-    def run (self, color):
+    def run (self, color, my_camera):
+        self.perception.run(color,3,my_camera)
         if self.first_move:
-            self.first_to_object(color) # Go close to the location of the found block 
+            self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
             while(self.start_pick_up ==False): 
-                self.second_to_object(color) # make sure the object hasn't moved in a while
+                self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
             self.grippers(True) # open grippers 
             self.rotate_gripper() #calculate needed angle of the gripper and rotate to that angle 
             self.lower_block() #move directly to block location and lower 
@@ -164,9 +165,10 @@ class Motion():
             return False 
 
 if __name__ == '__main__':
+    my_camera = Camera.Camera()
     motion = Motion()
     color = 'red'
-    result= motion.run(color)
+    result= motion.run(color, my_camera)
 
 
 

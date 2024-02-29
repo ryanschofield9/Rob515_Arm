@@ -201,9 +201,8 @@ class Perception():
         self.track = True
         return img
     
-    def run (self,color, run_time):
+    def run (self,color, run_time, my_camera):
         target_color = self.set_target_color(color)
-        my_camera = Camera.Camera()
         my_camera.camera_open()
         start = time.time()
 
@@ -226,9 +225,8 @@ class Perception():
         my_camera.camera_close()
         cv2.destroyAllWindows()
 
-    def get_coordinates(self, color):
+    def get_coordinates(self, color, my_camera):
         target_color = self.set_target_color(color)
-        my_camera = Camera.Camera()
         my_camera.camera_open()
         img = my_camera.frame
         if img is not None:
@@ -245,9 +243,10 @@ class Perception():
 
 if __name__ == '__main__':
     perception = Perception()
-    perception.run('red',10)
-    perception.run('blue', 10)
-    perception.run('green',10)
+    my_camera = Camera.Camera()
+    perception.run('red',10, my_camera)
+    perception.run('blue', 10, my_camera)
+    perception.run('green',10, my_camera)
     '''
     target_color = perception.set_target_color('red')
     my_camera = Camera.Camera()
