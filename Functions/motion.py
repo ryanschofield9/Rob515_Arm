@@ -144,6 +144,17 @@ class Motion():
         Board.setBusServoPulse(1, self.servo_1 - 50, 300)
         Board.setBusServoPulse(2, 500, 500)
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
+        self.detected_object = False
+        self.count_second = 0
+        self.stop = False
+        self.track = False
+        self.get_roi = False
+        self.center_list = []
+        self.first_move = True
+        self.action_finish = True
+        self.start_pick_up = False
+        self.start_count_t1 = True
+
     
 
     def run (self, color, my_camera):
@@ -178,7 +189,7 @@ class Motion():
         
     def fix_offset(self):
         self.world_x= self.world_x - 2
-        self.world_y = self.world_y 
+        self.world_y = self.world_y -1 
 
 if __name__ == '__main__':
     my_camera = Camera.Camera()
