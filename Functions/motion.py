@@ -188,7 +188,7 @@ class Motion():
             return False 
         
     def fix_offset(self):
-        self.world_x= self.world_x 
+        self.world_x= self.world_x -1 
         self.world_y = self.world_y
 
 if __name__ == '__main__':
