@@ -210,15 +210,25 @@ class Perception():
             if img is not None:
                 try: 
                     frame = img.copy()
+                    print("1")
                     frame_lab = self.get_frame_LAB(frame)
+                    print("2")
                     contours = self.find_contours(frame_lab)
+                    print("3")
                     max_contour, max_area = self.calculate_profile_area(contours)
+                    print("4")
                     rect,box = self.turn_into_box(max_contour)
+                    print("5")
                     self.get_ROI(box)
+                    print("6")
                     img_center_x, img_center_y = self.get_center(rect)
+                    print("7")
                     world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
+                    print("8")
                     Frame = self.draw_box(img,target_color, world_x, world_y, box)
+                    print("9")
                     cv2.imshow('Frame', Frame)
+                    print("10")
                     key = cv2.waitKey(1)
                     if key == 27:
                         break
