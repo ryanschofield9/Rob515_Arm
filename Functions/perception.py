@@ -247,7 +247,7 @@ class Perception():
 if __name__ == '__main__':
     perception = Perception()
     my_camera = Camera.Camera()
-    perception.run('red',10, my_camera)
+    perception.run('blue',10, my_camera)
     #perception.run('blue', 10, my_camera)
     perception.run('green',10, my_camera)
     '''
