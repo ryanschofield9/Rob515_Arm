@@ -208,19 +208,22 @@ class Perception():
         while (time.time()-start) < run_time:
             img = my_camera.frame
             if img is not None:
-                frame = img.copy()
-                frame_lab = self.get_frame_LAB(frame)
-                contours = self.find_contours(frame_lab)
-                max_contour, max_area = self.calculate_profile_area(contours)
-                rect,box = self.turn_into_box(max_contour)
-                self.get_ROI(box)
-                img_center_x, img_center_y = self.get_center(rect)
-                world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
-                Frame = self.draw_box(img,target_color, world_x, world_y, box)
-                cv2.imshow('Frame', Frame)
-                key = cv2.waitKey(1)
-                if key == 27:
-                    break
+                try: 
+                    frame = img.copy()
+                    frame_lab = self.get_frame_LAB(frame)
+                    contours = self.find_contours(frame_lab)
+                    max_contour, max_area = self.calculate_profile_area(contours)
+                    rect,box = self.turn_into_box(max_contour)
+                    self.get_ROI(box)
+                    img_center_x, img_center_y = self.get_center(rect)
+                    world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
+                    Frame = self.draw_box(img,target_color, world_x, world_y, box)
+                    cv2.imshow('Frame', Frame)
+                    key = cv2.waitKey(1)
+                    if key == 27:
+                        break
+                except: 
+                    print (f"tried to find block of {color}, but could not")
         my_camera.camera_close()
         cv2.destroyAllWindows()
 
@@ -247,8 +250,8 @@ class Perception():
 if __name__ == '__main__':
     perception = Perception()
     my_camera = Camera.Camera()
-    perception.run('blue',10, my_camera)
-    #perception.run('blue', 10, my_camera)
+    perception.run('red',10, my_camera)
+    perception.run('blue', 10, my_camera)
     perception.run('green',10, my_camera)
     '''
     target_color = perception.set_target_color('red')
