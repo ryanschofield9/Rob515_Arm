@@ -225,7 +225,9 @@ class Perception():
                         break
                 except: 
                     self.count = self.count + 1
-                    print (f"tried to find block of {color}, but could not")
+                    if self.count > 5:
+                        print (f"tried to find block of {color}, but could not")
+                        self.count = 0 
         my_camera.camera_close()
         cv2.destroyAllWindows()
 
@@ -233,12 +235,9 @@ class Perception():
         self.get_roi = False
 
     def get_coordinates(self, color, my_camera):
-        print("in perception")
         target_color = self.set_target_color(color)
-        print(self.target_color)
         #my_camera.camera_open()
         img = my_camera.frame
-        print("found image")
         if img is not None:
             frame = img.copy()
             frame_lab = self.get_frame_LAB(frame)
@@ -248,7 +247,6 @@ class Perception():
             self.get_ROI(box)
             img_center_x, img_center_y = self.get_center(rect)
             world_x, world_y = self.get_in_world_frame(img_center_x, img_center_y)
-            print(f"sending coordinates: {world_x}, {world_y}")
             return (world_x, world_y)
 
 

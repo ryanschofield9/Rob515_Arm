@@ -24,39 +24,12 @@ class Motion():
         self.AK = ArmIK()
         self.perception = Perception()
         self.detected_object = False
-        #self.count = 0
         self.count_second = 0
-        #self.stop = False
-        #self.square_length = 3
-        #self.roi = ()
-        #self.track = False
-        #self.get_roi = False
-        #self.center_list = []
         self.first_move = True
-        #self.target_color = ()
-        #self.detect_color = 'None'
         self.action_finish = True
         self.start_pick_up = False
-        #self.start_count_t1 = True
-        #self.size = (640, 480)
-        #self.last_x = 0
         self.servo_1 = 500
-        #self.last_y = 0
         self.rotation_angle = 0 
-        #self.range_rgb = {
-          #  'red': (0, 0, 255),
-           # 'blue': (255, 0, 0),
-            #'green': (0, 255, 0),
-            #'black': (0, 0, 0),
-            #'white': (255, 255, 255),
-        #}
-        #self.color_range = {
-         #   'red': [(0, 151, 100), (255, 255, 255)], 
-          #  'green': [(0, 0, 0), (255, 115, 255)], 
-           # 'blue': [(0, 0, 0), (255, 255, 110)], 
-           # 'black': [(0, 0, 0), (56, 255, 255)], 
-           # 'white': [(193, 0, 0), (255, 250, 255)], 
-        #}
         self.coordinate = {
         'red':   (-15 + 0.5, 12 - 0.5, 1.5),
         'green': (-15 + 0.5, 6 - 0.5,  1.5),
@@ -68,11 +41,7 @@ class Motion():
             return result
     
     def detect_object(self, color, my_camera):
-        print("in detetction")
-        print(color)
         world_x, world_y = self.perception.get_coordinates(color, my_camera)
-        print(world_x)
-        print(world_y)
         return (world_x, world_y)
 
     def first_to_object (self, color, my_camera):
@@ -144,29 +113,21 @@ class Motion():
         Board.setBusServoPulse(1, self.servo_1 - 50, 300)
         Board.setBusServoPulse(2, 500, 500)
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
+    
+    def reset(self):
         self.detected_object = False
         self.count_second = 0
-        #self.stop = False
-        #self.track = False
-        #self.get_roi = False
-        #self.center_list = []
         self.first_move = True
         self.action_finish = True
         self.start_pick_up = False
-        #self.start_count_t1 = True
-
     
 
     def run (self, color, my_camera):
-        print("start")
-        print(color)
         self.starting_position()
         self.perception.run(color,5,my_camera)
-        print("doing first move")
         if self.first_move:
             self.first_to_object(color, my_camera) # Go close to the location of the found block 
         if not self.first_move and not self.unreachable:
-            print("doing second move")
             while(self.start_pick_up ==False): 
                 self.second_to_object(color, my_camera) # make sure the object hasn't moved in a while
             self.grippers(True) # open grippers 
@@ -180,11 +141,14 @@ class Motion():
             self.lower_block(color) #slowly lower the block 
             self.grippers(True) #open grippers and drop block 
             self.starting_position() # go to starting position 
+            self.reset()
             return True 
         elif self.unreachable: 
             print("Unreachable")
+            self.reset()
             return False 
         else: 
+            self.reset()
             return False 
         
     def fix_offset(self):
@@ -195,9 +159,7 @@ if __name__ == '__main__':
     my_camera = Camera.Camera()
     motion = Motion()
     color = 'red'
-    print("ok starting")
     result= motion.run(color, my_camera)
-    print("ok starting 2")
     color = 'blue'
     result= motion.run(color, my_camera)
 
