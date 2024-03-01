@@ -24,39 +24,39 @@ class Motion():
         self.AK = ArmIK()
         self.perception = Perception()
         self.detected_object = False
-        self.count = 0
+        #self.count = 0
         self.count_second = 0
-        self.stop = False
-        self.square_length = 3
-        self.roi = ()
-        self.track = False
-        self.get_roi = False
-        self.center_list = []
+        #self.stop = False
+        #self.square_length = 3
+        #self.roi = ()
+        #self.track = False
+        #self.get_roi = False
+        #self.center_list = []
         self.first_move = True
-        self.target_color = ()
-        self.detect_color = 'None'
+        #self.target_color = ()
+        #self.detect_color = 'None'
         self.action_finish = True
         self.start_pick_up = False
-        self.start_count_t1 = True
-        self.size = (640, 480)
-        self.last_x = 0
+        #self.start_count_t1 = True
+        #self.size = (640, 480)
+        #self.last_x = 0
         self.servo_1 = 500
-        self.last_y = 0
+        #self.last_y = 0
         self.rotation_angle = 0 
-        self.range_rgb = {
-            'red': (0, 0, 255),
-            'blue': (255, 0, 0),
-            'green': (0, 255, 0),
-            'black': (0, 0, 0),
-            'white': (255, 255, 255),
-        }
-        self.color_range = {
-            'red': [(0, 151, 100), (255, 255, 255)], 
-            'green': [(0, 0, 0), (255, 115, 255)], 
-            'blue': [(0, 0, 0), (255, 255, 110)], 
-            'black': [(0, 0, 0), (56, 255, 255)], 
-            'white': [(193, 0, 0), (255, 250, 255)], 
-        }
+        #self.range_rgb = {
+          #  'red': (0, 0, 255),
+           # 'blue': (255, 0, 0),
+            #'green': (0, 255, 0),
+            #'black': (0, 0, 0),
+            #'white': (255, 255, 255),
+        #}
+        #self.color_range = {
+         #   'red': [(0, 151, 100), (255, 255, 255)], 
+          #  'green': [(0, 0, 0), (255, 115, 255)], 
+           # 'blue': [(0, 0, 0), (255, 255, 110)], 
+           # 'black': [(0, 0, 0), (56, 255, 255)], 
+           # 'white': [(193, 0, 0), (255, 250, 255)], 
+        #}
         self.coordinate = {
         'red':   (-15 + 0.5, 12 - 0.5, 1.5),
         'green': (-15 + 0.5, 6 - 0.5,  1.5),
@@ -146,14 +146,14 @@ class Motion():
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
         self.detected_object = False
         self.count_second = 0
-        self.stop = False
-        self.track = False
-        self.get_roi = False
-        self.center_list = []
+        #self.stop = False
+        #self.track = False
+        #self.get_roi = False
+        #self.center_list = []
         self.first_move = True
         self.action_finish = True
         self.start_pick_up = False
-        self.start_count_t1 = True
+        #self.start_count_t1 = True
 
     
 

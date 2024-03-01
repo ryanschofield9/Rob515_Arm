@@ -105,22 +105,21 @@ if area_max > 2500:  # 有找到最大面积 #There is the largest area found
 '''
 class Perception():
     def __init__(self):
-        self.count = 0
-        self.stop = False
+        #self.count = 0
+        #self.stop = False
         self.square_length = 3
         self.roi = ()
-        self.track = False
+        #self.track = False
         self.get_roi = False
-        self.center_list = []
-        self.first_move = True
+        #self.center_list = []
+        #self.first_move = True
         self.target_color = ()
-        self.detect_color = 'None'
-        self.action_finish = True
-        self.start_pick_up = False
-        self.start_count_t1 = True
+        #self.detect_color = 'None'
+        #self.action_finish = True
+        #self.start_count_t1 = True
         self.size = (640, 480)
-        self.last_x = 0
-        self.last_y = 0
+        #self.last_x = 0
+        #self.last_y = 0
         self.range_rgb = {
             'red': (0, 0, 255),
             'blue': (255, 0, 0),
@@ -147,7 +146,7 @@ class Perception():
         cv2.line(img, (int(img_w / 2), 0), (int(img_w / 2), img_h), (0, 0, 200), 1)
         frame_resize = cv2.resize(img_copy, self.size, interpolation=cv2.INTER_NEAREST)
         frame_gb = cv2.GaussianBlur(frame_resize, (11, 11), 11)#..... the area is detected until there is none 
-        if self.get_roi and self.start_pick_up:
+        if self.get_roi:
             self.get_roi = False
             frame_gb = getMaskROI(frame_gb, self.roi, self.size)    
         frame_lab = cv2.cvtColor(frame_gb, cv2.COLOR_BGR2LAB)  # 将图像转换到LAB空间 #Convert images to LAB space
@@ -198,7 +197,7 @@ class Perception():
         cv2.drawContours(img, [box], -1, self.range_rgb[target_color], 2)
         cv2.putText(img, '(' + str(world_x) + ',' + str(world_y) + ')', (min(box[0, 0], box[2, 0]), box[2, 1] - 10),
             cv2.FONT_HERSHEY_SIMPLEX, 0.5, self.range_rgb[target_color], 1) 
-        self.track = True
+        #self.track = True
         return img
     
     def run (self,color, run_time, my_camera):
