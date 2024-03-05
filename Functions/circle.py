@@ -195,7 +195,7 @@ class Circle():
         center_x = center[0]
         center_y = center[1]
         for i in range (24):
-            x = center_x + r*math.cos(i*15)
+            x = center_x + r*math.cos(i*15*(math.pi/180))
             y = center_y + r*math.sin(i)
             z = 7 
             pts.append((x,y,z))
@@ -207,7 +207,7 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts((0.53,20.23,7), 5)
+        pts = circle.get_circle_pts((0.53,20.23,7), 1)
         for vals in pts: 
             print(vals)
             result = self.go_to_location(vals, 0, 0, -90)
