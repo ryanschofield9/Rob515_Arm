@@ -186,7 +186,7 @@ class Circle():
         self.starting_position()
         print("at starting pos")
         print("go to 0.53,20.23,7")
-        result = self.go_to_location((0.53,20.23, 7), -30, -30, -90)
+        result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         print(result)
         print("at 0.53,20.23,7")
 
