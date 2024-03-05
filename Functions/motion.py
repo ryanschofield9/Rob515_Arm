@@ -64,6 +64,8 @@ class Motion():
         #do this while self.start_pick_up is true
         self.action_finished = False 
         world_x, world_y = self.detect_object(color, my_camera)
+        print(world_x)
+        print(world_y)
         if self.count_second < 3:
             if math.isclose(world_x, self.world_x, rel_tol = 1) and math.isclose(world_y, self.world_y, rel_tol =1):
                 self.start_pick_up = True
