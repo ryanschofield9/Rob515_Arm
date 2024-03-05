@@ -188,6 +188,7 @@ if __name__ == '__main__':
 
     circle = Circle()
     circle.go_to_location((0, 0, 0), -30, -30, -90)
+    time.sleep(4)
 
 
 
