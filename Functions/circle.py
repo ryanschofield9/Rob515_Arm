@@ -185,8 +185,8 @@ class Circle():
         print("go to starting pos")
         self.starting_position()
         print("at starting pos")
-        print("go to 0,0,0")
-        result = self.go_to_location((0,0,0), -30, -30, -90)
+        print("go to 0,20,20")
+        result = self.go_to_location((0,20,20), -30, -30, -90)
         print(result)
         print("at 0,0,0")
 
