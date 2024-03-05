@@ -207,7 +207,7 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts()
+        pts = circle.get_circle_pts((0.53,20.23,7), 2)
         for vals in pts: 
             print(vals)
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
