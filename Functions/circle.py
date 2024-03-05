@@ -187,6 +187,7 @@ if __name__ == '__main__':
     color = 'red'
 
     circle = Circle()
+    circle.starting_position()
     circle.go_to_location((0, 0, 0), -30, -30, -90)
     time.sleep(4)
 
