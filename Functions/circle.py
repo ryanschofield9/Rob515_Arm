@@ -180,6 +180,17 @@ class Circle():
         Board.setBusServoPulse(1, self.servo_1 - 50, 300)
         Board.setBusServoPulse(2, 500, 500)
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
+    
+    def run(self):
+        print("go to starting pos")
+        self.starting_position()
+        print("at starting pos")
+        print("go to 0,0,0")
+        self.go_to_location((0,0,0), -30, -30, -90)
+        print("at 0,0,0")
+
+
+        
 
 if __name__ == '__main__':
     my_camera = Camera.Camera()
@@ -187,9 +198,7 @@ if __name__ == '__main__':
     color = 'red'
 
     circle = Circle()
-    circle.starting_position()
-    circle.go_to_location((0, 0, 0), -30, -30, -90)
-    time.sleep(4)
+    circle.run()
 
 
 
