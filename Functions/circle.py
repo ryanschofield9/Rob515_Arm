@@ -210,6 +210,8 @@ class Circle():
         pts = circle.get_circle_pts((0.53,20.23,7), 2)
         for vals in pts: 
             print(vals)
+            result = self.go_to_location(vals, 0, 0, -90)
+            print(f"result {result}")
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
         #print("at 0.53,20.23,7")
