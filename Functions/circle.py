@@ -211,7 +211,7 @@ class Circle():
         for vals in pts: 
             print(vals)
             result = self.go_to_location(vals, 0, 0, -90)
-            #time.sleep(1)
+            time.sleep(0.5)
             #print(f"result {result}")
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
