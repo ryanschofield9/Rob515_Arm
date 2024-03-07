@@ -93,7 +93,7 @@ class Motion():
     
     def lower_block(self, color=None):
         if color == None:
-            self.go_to_location((self.world_x, self.world_y, 9), -90. -90, 0, 1000)    
+            self.go_to_location((self.world_x, self.world_y, 8), -90. -90, 0, 1000)    
         else: 
             self.go_to_location((self.coordinate[color][0], self.coordinate[color][1], self.coordinate[color][2] + 3), -90, -90, 0)
             time.sleep(0.5)
