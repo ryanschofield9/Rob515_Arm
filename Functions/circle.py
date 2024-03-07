@@ -231,7 +231,9 @@ class Circle():
             print(f"Moving to point {intermediate_point}")
 
             # move the brick to intermediate point
-            self.state.AK.setPitchRangeMoving(intermediate_point, -90, -90, 0, move_time=500) #adjust function calling as implemented
+
+            #self.state.AK.setPitchRangeMoving(intermediate_point, -90, -90, 0, move_time=500) 
+            self.go_to_location(intermediate_point, -90, -90, 0, movetime=500)#adjust function calling as implemented
 
             time.sleep(1)
 
