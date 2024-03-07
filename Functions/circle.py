@@ -227,7 +227,7 @@ class Circle():
 
         # Simulate moving the brick along the straight line
         for i in range(num_intermediate_points + 1):
-            intermediate_point = (point_a[0] + i step_x, point_a[1] + i step_y, 7)
+            intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 7)
             print(f"Moving to point {intermediate_point}")
 
             # move the brick to intermediate point
