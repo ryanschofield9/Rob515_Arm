@@ -277,10 +277,10 @@ if __name__ == '__main__':
     circle = Circle()
     circle.starting_position()
     #print("going to staring pos ")
-    #circle.run()
-    circle.drawline((0.53,20.23),( 0.53,15))
+    circle.run()
+    #circle.drawline((0.53,20.23),( 0.53,15))
     time.sleep(1)
-    circle.drawline((3,20.23),( 3,15))
+    #circle.drawline((3,20.23),( 3,15))
     #circle.run()
 
 
