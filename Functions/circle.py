@@ -232,6 +232,7 @@ class Circle():
             intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 3)
             if self.count_line == 0: 
                     self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
+                    print("starting up")
             print(f"Moving to point {intermediate_point}")
 
             # move the brick to intermediate point
@@ -241,6 +242,7 @@ class Circle():
 
             if self.count_line == 3: 
                     self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
+                    print("moving up again")
 
             self.count_line = self.count_line + 1
 
@@ -255,6 +257,7 @@ if __name__ == '__main__':
     color = 'red'
 
     circle = Circle()
+    circle.starting_position()
     #circle.run()
     circle.drawline((0.53,20.23, 7),( 8,20.23, 7))
 
