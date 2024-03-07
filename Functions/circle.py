@@ -241,7 +241,7 @@ class Circle():
 
             if self.count_line == 3: 
                     self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
-                    
+
             self.count_line = self.count_line + 1
 
             time.sleep(1)
@@ -256,7 +256,7 @@ if __name__ == '__main__':
 
     circle = Circle()
     #circle.run()
-    circle.drawline((0.53,20.23, 7),( 3,20.23, 7))
+    circle.drawline((0.53,20.23, 7),( 8,20.23, 7))
 
 
 
