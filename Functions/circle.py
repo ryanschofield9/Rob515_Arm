@@ -243,8 +243,8 @@ if __name__ == '__main__':
     motion = Motion()
     color = 'red'
 
-    circle = Circle((0.53,20.23,7), (-3,20.23,7))
-    circle.run()
+    circle = Circle()
+    #circle.run()
     circle.drawline()
 
 
