@@ -219,7 +219,7 @@ class Circle():
         result = self.go_to_location((pts[0][0], pts[0][1], 12), 0, 0, -90)
         for vals in pts: 
             print(vals)
-            #self.rotate_gripper(vals[0], vals[1])
+            self.rotate_gripper(vals[0], vals[1])
             result = self.go_to_location(vals, 0, 0, -90)
             time.sleep(0.5)
             #print(f"result {result}")
