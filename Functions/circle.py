@@ -136,11 +136,13 @@ class Motion():
             self.lower_block() #move directly to block location and lower 
             self.grippers(False) #close grippers 
             self.raise_block() # raise block up 
+            '''
             self.raise_block(color) # go close to predetermined location of block drop off 
             self.rotate_gripper(color) #calculate needed angle of gripper and rotate to that angle 
             self.lower_block(color) #slowly lower the block 
             self.grippers(True) #open grippers and drop block 
             self.starting_position() # go to starting position 
+            '''
             self.reset()
             return True 
         elif self.unreachable: 
@@ -254,13 +256,14 @@ class Circle():
 if __name__ == '__main__':
     my_camera = Camera.Camera()
     motion = Motion()
-    color = 'red'
+    color = 'blue'
+    motion.run(color, my_camera)
 
     circle = Circle()
     circle.starting_position()
     print("going to staring pos ")
     #circle.run()
-    #circle.drawline((0.53,20.23, 7),( 8,20.23, 7))
+    circle.drawline((0.53,20.23),( 8,20.23))
 
 
 
