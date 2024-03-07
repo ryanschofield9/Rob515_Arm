@@ -214,7 +214,9 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts((0.53,20.23,7), 5)
+        pts = circle.get_circle_pts((0.53,20.23,7), 8)
+        self.rotate_gripper(pts[0][0], pts[0][1])
+        result = self.go_to_location((pts[0][0], pts[0][1], 12), 0, 0, -90)
         for vals in pts: 
             print(vals)
             self.rotate_gripper(vals[0], vals[1])
@@ -224,7 +226,10 @@ class Circle():
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
         #print("at 0.53,20.23,7")
-    
+        self.rotate_gripper(pts[-1][0], pts[-1][1])
+        result = self.go_to_location((pts[-1][0], pts[-1][1], 12), 0, 0, -90)
+        self.grippers(True)
+
     def drawline(self, point_a, point_b):
     # Calculate the distance between the two points
         distance = ((point_b[0] - point_a[0]) + (point_b[1] - point_a[1]))*0.5
@@ -272,7 +277,8 @@ if __name__ == '__main__':
     circle.starting_position()
     print("going to staring pos ")
     #circle.run()
-    circle.drawline((0.53,20.23),( 8,20.23))
+    #circle.drawline((0.53,20.23),( 8,20.23))
+    circle.run()
 
 
 
