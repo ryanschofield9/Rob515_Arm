@@ -232,12 +232,12 @@ class Circle():
 
     def drawline(self, point_a, point_b):
         print("in drawline")
-    # Calculate the distance between the two points
+        # Calculate the distance between the two points
         distance = ((point_b[0] - point_a[0]) + (point_b[1] - point_a[1]))*0.5
 
         # Calculate the number of intermediate points
         num_intermediate_points = int(distance) + 1
-
+        print(f"num pts: {num_intermediate_points}")
         # Calculate the step size for each coordinate
         step_x = (point_b[0] - point_a[0]) / num_intermediate_points
         step_y = (point_b[1] - point_a[1]) / num_intermediate_points
