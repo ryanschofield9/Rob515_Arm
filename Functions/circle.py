@@ -236,7 +236,7 @@ class Circle():
         distance = ((point_b[0] - point_a[0]) + (point_b[1] - point_a[1]))*0.5
 
         # Calculate the number of intermediate points
-        num_intermediate_points = int(distance) + 1
+        num_intermediate_points = abs(int(distance)) + 1
         print(f"num pts: {num_intermediate_points}")
         # Calculate the step size for each coordinate
         step_x = (point_b[0] - point_a[0]) / num_intermediate_points
