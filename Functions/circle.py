@@ -241,7 +241,8 @@ class Circle():
         # Calculate the step size for each coordinate
         step_x = (point_b[0] - point_a[0]) / num_intermediate_points
         step_y = (point_b[1] - point_a[1]) / num_intermediate_points
-
+        print (f"step_x: {step_x}")
+        print (f"step_y: {step_y}")
         # Simulate moving the brick along the straight line
         for i in range(num_intermediate_points + 1):
             intermediate_point_up = (point_a[0] + i * step_x, point_a[1] + i * step_y, 15)
@@ -263,7 +264,6 @@ class Circle():
             self.count_line = self.count_line + 1
 
             time.sleep(1)
-        self.grippers(True)
 
 
         
