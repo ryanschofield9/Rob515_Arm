@@ -196,7 +196,7 @@ class Circle():
             z = 7 
             pts.append((x,y,z))
         return pts 
-    
+
     def run(self):
         print("go to starting pos")
         self.starting_position()
@@ -213,6 +213,27 @@ class Circle():
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
         #print("at 0.53,20.23,7")
+    
+    def drawline(self, point_a, point_b):
+    # Calculate the distance between the two points
+        distance = ((point_b[0] - point_a[0]) + (point_b[1] - point_a[1]))*0.5
+
+        # Calculate the number of intermediate points
+        num_intermediate_points = int(distance) + 1
+
+        # Calculate the step size for each coordinate
+        step_x = (point_b[0] - point_a[0]) / num_intermediate_points
+        step_y = (point_b[1] - point_a[1]) / num_intermediate_points
+
+        # Simulate moving the brick along the straight line
+        for i in range(num_intermediate_points + 1):
+            intermediate_point = (point_a[0] + i step_x, point_a[1] + i step_y, 7)
+            print(f"Moving to point {intermediate_point}")
+
+            # move the brick to intermediate point
+            self.state.AK.setPitchRangeMoving(intermediate_point, -90, -90, 0, move_time=500) #adjust function calling as implemented
+
+            time.sleep(1)
 
 
         
@@ -222,8 +243,9 @@ if __name__ == '__main__':
     motion = Motion()
     color = 'red'
 
-    circle = Circle()
+    circle = Circle((0.53,20.23,7), (-3,20.23,7))
     circle.run()
+    circle.drawline()
 
 
 
