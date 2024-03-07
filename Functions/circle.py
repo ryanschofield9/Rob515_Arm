@@ -188,6 +188,14 @@ class Circle():
         servo2_angle = getAngle(x, y, self.rotation_angle) # get roation angle 
         Board.setBusServoPulse(2, servo2_angle, 500)
         time.sleep(1) 
+
+    def grippers(self, open):
+        if open:
+            Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
+            time.sleep(1)
+        else: 
+            Board.setBusServoPulse(1, self.servo_1+20, 500)  #close gripper 
+            time.sleep(1)
     
     def get_circle_pts (self, center, r):
         pts = []
@@ -249,6 +257,7 @@ class Circle():
             self.count_line = self.count_line + 1
 
             time.sleep(1)
+        self.grippers(True)
 
 
         
