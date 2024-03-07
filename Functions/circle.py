@@ -231,7 +231,7 @@ class Circle():
         # Simulate moving the brick along the straight line
         for i in range(num_intermediate_points + 1):
             intermediate_point_up = (point_a[0] + i * step_x, point_a[1] + i * step_y, 15)
-            intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 7)
+            intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 8)
             if self.count_line == 0: 
                     self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
                     print("starting up")
