@@ -245,7 +245,7 @@ if __name__ == '__main__':
 
     circle = Circle()
     #circle.run()
-    circle.drawline()
+    circle.drawline((0.53,20.23, 7), 3,20.23, 7)
 
 
 
