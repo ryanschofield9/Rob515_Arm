@@ -166,6 +166,7 @@ class Circle():
         #self.start_pick_up = False
         self.servo_1 = 500
         self.rotation_angle = 0 
+        self.count_line = 0
         self.coordinate = {
         'red':   (-15 + 0.5, 12 - 0.5, 1.5),
         'green': (-15 + 0.5, 6 - 0.5,  1.5),
@@ -227,13 +228,21 @@ class Circle():
 
         # Simulate moving the brick along the straight line
         for i in range(num_intermediate_points + 1):
-            intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 7)
+            intermediate_point_up = (point_a[0] + i * step_x, point_a[1] + i * step_y, 7)
+            intermediate_point = (point_a[0] + i * step_x, point_a[1] + i * step_y, 3)
+            if self.count_line == 0: 
+                    self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
             print(f"Moving to point {intermediate_point}")
 
             # move the brick to intermediate point
 
             #self.state.AK.setPitchRangeMoving(intermediate_point, -90, -90, 0, move_time=500) 
             self.go_to_location(intermediate_point, -90, -90, 0, movetime=500)#adjust function calling as implemented
+
+            if self.count_line == 3: 
+                    self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
+                    
+            self.count_line = self.count_line + 1
 
             time.sleep(1)
 
