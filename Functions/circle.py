@@ -182,7 +182,7 @@ class Circle():
         self.go_to_location((0, 10, 10), -30, -30, -90, 1500)
     
     def rotate_gripper(self, x, y):
-        servo2_angle = getAngle(self.world_x, self.world_y, self.rotation_angle) # get roation angle 
+        servo2_angle = getAngle(x, y, self.rotation_angle) # get roation angle 
         Board.setBusServoPulse(2, servo2_angle, 500)
         time.sleep(1) 
     
