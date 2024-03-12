@@ -210,7 +210,8 @@ class Circle():
 
     def run(self):
         print("go to starting pos")
-        self.starting_position()
+        #self.starting_position()
+        self.grippers(False)
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
