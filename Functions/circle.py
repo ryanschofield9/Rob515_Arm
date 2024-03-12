@@ -79,7 +79,7 @@ class Motion():
             Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
             time.sleep(1)
         else: 
-            Board.setBusServoPulse(1, self.servo_1+20, 500)  #close gripper 
+            Board.setBusServoPulse(1, self.servo_1+100, 500)  #close gripper 
             time.sleep(1)
     
     def rotate_gripper(self, color = None):
@@ -93,7 +93,7 @@ class Motion():
     
     def lower_block(self, color=None):
         if color == None:
-            self.go_to_location((self.world_x, self.world_y, 8), -90. -90, 0, 1000)    
+            self.go_to_location((self.world_x, self.world_y, 8), -90. 0, 0, 1000)    
         else: 
             self.go_to_location((self.coordinate[color][0], self.coordinate[color][1], self.coordinate[color][2] + 3), -90, -90, 0)
             time.sleep(0.5)
@@ -154,7 +154,7 @@ class Motion():
             return False 
         
     def fix_offset(self):
-        self.world_x= self.world_x +1  
+        self.world_x= self.world_x   
         self.world_y = self.world_y  
 
 class Circle():
