@@ -215,7 +215,7 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts((-2,28.23,5), 5)
+        pts = circle.get_circle_pts((-2,27.23,5), 5)
         #self.rotate_gripper(pts[0][0], pts[0][1])
         result = self.go_to_location((pts[0][0], pts[0][1], 14), 0, 0, -90)
         for vals in pts: 
