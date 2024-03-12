@@ -79,7 +79,7 @@ class Motion():
             Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
             time.sleep(1)
         else: 
-            Board.setBusServoPulse(1, self.servo_1+100, 500)  #close gripper 
+            Board.setBusServoPulse(1, self.servo_1+300, 500)  #close gripper 
             time.sleep(1)
     
     def rotate_gripper(self, color = None):
