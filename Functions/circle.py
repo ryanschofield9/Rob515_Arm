@@ -204,7 +204,7 @@ class Circle():
         for i in range (24):
             x = center_x + r*math.cos(i*-15*(math.pi/180))
             y = center_y + r*math.sin(i *-15*(math.pi/180))
-            z = 6.5 
+            z = 7
             pts.append((x,y,z))
         return pts 
 
@@ -215,9 +215,9 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts((-2,20.23,5), 5)
+        pts = circle.get_circle_pts((-2,25.23,5), 5)
         #self.rotate_gripper(pts[0][0], pts[0][1])
-        result = self.go_to_location((pts[0][0], pts[0][1], 12), 0, 0, -90)
+        result = self.go_to_location((pts[0][0], pts[0][1], 14), 0, 0, -90)
         for vals in pts: 
             print(vals)
             #self.rotate_gripper(vals[0], vals[1])
