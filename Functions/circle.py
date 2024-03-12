@@ -202,8 +202,8 @@ class Circle():
         center_x = center[0]
         center_y = center[1]
         for i in range (24):
-            x = center_x + r*math.cos(i*15*(math.pi/180))
-            y = center_y + r*math.sin(i *15*(math.pi/180))
+            x = center_x + r*math.cos(i*-15*(math.pi/180))
+            y = center_y + r*math.sin(i *-15*(math.pi/180))
             z = 6.5 
             pts.append((x,y,z))
         return pts 
