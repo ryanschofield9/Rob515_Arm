@@ -79,7 +79,7 @@ class Motion():
             Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
             time.sleep(1)
         else: 
-            Board.setBusServoPulse(1, self.servo_1+700, 500)  #close gripper 
+            Board.setBusServoPulse(1, self.servo_1+800, 500)  #close gripper 
             time.sleep(1)
     
     def rotate_gripper(self, color = None):
@@ -194,7 +194,7 @@ class Circle():
             Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
             time.sleep(1)
         else: 
-            Board.setBusServoPulse(1, self.servo_1+700, 500)  #close gripper 
+            Board.setBusServoPulse(1, self.servo_1+800, 500)  #close gripper 
             time.sleep(1)
     
     def get_circle_pts (self, center, r):
@@ -204,7 +204,7 @@ class Circle():
         for i in range (24):
             x = center_x + r*math.cos(i*15*(math.pi/180))
             y = center_y + r*math.sin(i *15*(math.pi/180))
-            z = 7 
+            z = 6.5 
             pts.append((x,y,z))
         return pts 
 
@@ -215,7 +215,7 @@ class Circle():
         print("at starting pos")
         #print("go to 0.53,20.23,7")
         print("getting circle pts")
-        pts = circle.get_circle_pts((-2,20.23,5), 6)
+        pts = circle.get_circle_pts((-2,20.23,5), 5)
         #self.rotate_gripper(pts[0][0], pts[0][1])
         result = self.go_to_location((pts[0][0], pts[0][1], 12), 0, 0, -90)
         for vals in pts: 
