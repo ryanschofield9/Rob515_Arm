@@ -223,11 +223,11 @@ class Circle():
             result = self.go_to_location(vals, 0, 0, -90)
             time.sleep(0.5)
             #print(f"result {result}")
-        #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
+        result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
         #print("at 0.53,20.23,7")
         self.rotate_gripper(pts[-1][0], pts[-1][1])
-        #result = self.go_to_location((pts[-1][0], pts[-1][1], 12), 0, 0, -90)
+        result = self.go_to_location((pts[-1][0], pts[-1][1], 12), 0, 0, -90)
         self.grippers(True)
 
     def drawline(self, point_a, point_b):
@@ -271,7 +271,7 @@ class Circle():
 if __name__ == '__main__':
     my_camera = Camera.Camera()
     motion = Motion()
-    color = 'blue'
+    color = 'red'
     motion.run(color, my_camera)
 
     circle = Circle()
