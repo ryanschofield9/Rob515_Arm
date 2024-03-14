@@ -194,7 +194,7 @@ class Circle():
             Board.setBusServoPulse(1, self.servo_1 - 310, 500) #open gripper 
             time.sleep(1)
         else: 
-            Board.setBusServoPulse(1, self.servo_1+800, 500)  #close gripper 
+            Board.setBusServoPulse(1, self.servo_1+900, 500)  #close gripper 
             time.sleep(1)
     
     def get_circle_pts (self, center, r):
@@ -282,9 +282,9 @@ if __name__ == '__main__':
     circle = Circle()
     circle.starting_position()
     #print("going to staring pos ")
-    #circle.run()
+    circle.run()
     #circle.drawline((0.53,20.23),( 0.53,15))
-    #time.sleep(1)
+    time.sleep(1)
     circle.drawline((-1,31),(-1,29))
     time.sleep(1)
     circle.drawline((1,31),(1,29))
