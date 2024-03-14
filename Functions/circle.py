@@ -261,13 +261,14 @@ class Circle():
             #self.state.AK.setPitchRangeMoving(intermediate_point, -90, -90, 0, move_time=500) 
             self.go_to_location(intermediate_point, -90, -90, 0, movetime=500)#adjust function calling as implemented
 
-            if self.count_line == num_intermediate_points: 
+            if self.count_line == num_intermediate_points -1 : 
                     self.go_to_location(intermediate_point_up, -90, -90, 0, movetime=500)
                     print("moving up again")
 
             self.count_line = self.count_line + 1
 
             time.sleep(1)
+        self.count_line = 0 
 
 
         
