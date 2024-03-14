@@ -284,6 +284,11 @@ if __name__ == '__main__':
     circle.run()
     #circle.drawline((0.53,20.23),( 0.53,15))
     time.sleep(1)
+    circle.draw_line((-1,31)(-1,29))
+    time.sleep(1)
+    circle.draw_line((1,31)(1,29))
+    time.sleep(1)
+    circle.draw_line((-2,28), (2,28))
     #circle.drawline((3,20.23),( 3,15))
     #circle.run()
 
