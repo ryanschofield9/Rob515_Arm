@@ -224,14 +224,14 @@ class Circle():
             result = self.go_to_location(vals, 0, 0, -90)
             time.sleep(0.5)
             #print(f"result {result}")
-        for x in range (6):
+        for x in range (2):
             result = self.go_to_location((pts[x][0], pts[x][1], pts[x][2]), 0, 0,-90 )
             time.sleep(0.5)
         #result = self.go_to_location((0.53,20.23, 7), 0, 0, -90)
         #print(result)
         #print("at 0.53,20.23,7")
         #self.rotate_gripper(pts[-1][0], pts[-1][1])
-        result = self.go_to_location((pts[5][0], pts[5][1], 12), 0, 0, -90)
+        result = self.go_to_location((pts[2][0], pts[2][1], 12), 0, 0, -90)
         self.grippers(True)
 
     def drawline(self, point_a, point_b):
