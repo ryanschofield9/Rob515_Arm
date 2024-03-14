@@ -73,6 +73,7 @@ class Motion():
         else: 
             self.world_x, self.world_y = self.detect_object(color, my_camera)
             self.count_second = 0 
+        self.world_y = self.world_y + 1
         
     def grippers(self, open):
         if open:
@@ -232,7 +233,7 @@ class Circle():
         #print("at 0.53,20.23,7")
         #self.rotate_gripper(pts[-1][0], pts[-1][1])
         result = self.go_to_location((pts[2][0], pts[2][1], 12), 0, 0, -90)
-        #self.grippers(True)
+        self.grippers(True)
 
     def drawline(self, point_a, point_b):
         print("in drawline")
@@ -285,11 +286,11 @@ if __name__ == '__main__':
     circle.run()
     #circle.drawline((0.53,20.23),( 0.53,15))
     time.sleep(1)
-    circle.drawline((-1,31),(-1,29))
-    time.sleep(1)
-    circle.drawline((1,31),(1,29))
-    time.sleep(1)
-    circle.drawline((-2,28), (2,28))
+    #circle.drawline((-1,31),(-1,29))
+    #time.sleep(1)
+    #circle.drawline((1,31),(1,29))
+    #time.sleep(1)
+    #circle.drawline((-2,28), (2,28))
     #circle.drawline((3,20.23),( 3,15))
     #circle.run()
 
